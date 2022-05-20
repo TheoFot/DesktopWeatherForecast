@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Weather
 {
-   public class Storyweathertemplate
+   public class StoryWeatherTemplate
     {
         public int id { get; set; }
 

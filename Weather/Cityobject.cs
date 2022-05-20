@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Weather
 {
-    internal class Cityobject
+    internal class CityObject
     {      
         public string Request(float id)
         {
@@ -26,11 +26,11 @@ namespace Weather
             string Jsonweather = requesrresult.Content.ReadAsStringAsync().Result;
             return Jsonweather;
         }
-        public static List<Class1> ReadCities(string filepath)
+        public static List<City> ReadCities(string filepath)
         {
             string jsonString = File.ReadAllText(filepath);
-            List<Class1> weatherForecast =
-               System.Text.Json.JsonSerializer.Deserialize<List<Class1>>(jsonString);
+            List<City> weatherForecast =
+               System.Text.Json.JsonSerializer.Deserialize<List<City>>(jsonString);
             return weatherForecast;
         }
         public DateTime ConvertFromUnix(int unixTime)
@@ -48,7 +48,7 @@ namespace Weather
             {
                 return "This city does not exist! Try again";
             }
-            var weathers = JsonConvert.DeserializeObject<Rootobject>(result);
+            var weathers = JsonConvert.DeserializeObject<RootObject>(result);
             
             double speedOfWind = weathers.wind.gust * 3.6;
             string Windsspeed = String.Format("{0:f2}", speedOfWind);

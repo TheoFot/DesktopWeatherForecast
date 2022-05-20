@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Weather
 {
-    public class Class1
+    public class City
     {
         public float id { get; set; }
         public string name { get; set; }

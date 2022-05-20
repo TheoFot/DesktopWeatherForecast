@@ -22,33 +22,24 @@ namespace Weather
         public WeatherField(string CityName, string CountriesName)
         {
             _citiesname = CityName;
-            _countriesname = CountriesName;
-           
+            _countriesname = CountriesName;           
         }
-
         public WeatherField()
         {
-            InitializeComponent();
-           
-            
-        }
-        
-
+            InitializeComponent();                      
+        }        
         private void citiesName_TextChanged(object sender, EventArgs e)
         {
             _citiesname = citiesName.Text;
         }
-
         private void countriesName_TextChanged(object sender, EventArgs e)
         {
             _countriesname = countriesName.Text;
         }
-
         private void showbutton_Click(object sender, EventArgs e)
         {
-            Cityobject cityobject = new Cityobject();
-
-            
+            CityObject cityobject = new CityObject();
+          
             WeatherField citysearch = new WeatherField();
             citysearch._citiesname = citiesName.Text;
             citysearch._countriesname = countriesName.Text;
@@ -56,26 +47,19 @@ namespace Weather
             if (weather == null)
             {
                 theweatherinformation.Text = "This city does not exist! Try again";
-
             }
             else
             {
                 theweatherinformation.Text = weather;
-            }
-            
+            }         
         }
-
         private void theweatherinformation_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        { }     
         private void buttonclear_Click(object sender, EventArgs e)
         {
             theweatherinformation.Clear();
             countriesName.Clear();
             citiesName.Clear();
-
         }
 
        

@@ -34,21 +34,10 @@ namespace Weather
                 connection = new SqliteConnection($"Data Source={path}");
                 connection.Open();                     
                 return connection;           
-        }
-        //public static SqliteConnection Conection()
-        //{
-        //    if (ExistenceOfDatabase())
-        //    {
-        //        return ConectionToDataBase();
-        //    }
-        //    else
-        //    {
-        //        return ConectionToDataBase();
-        //    }
-        //}
-        public static List<Storyweathertemplate> GetWeatherArchiveFromDB(string citisname)
+        }     
+        public static List<StoryWeatherTemplate> GetWeatherArchiveFromDB(string citisname)
         {
-            List<Storyweathertemplate> storyweathers = new List<Storyweathertemplate>();
+            List<StoryWeatherTemplate> storyweathers = new List<StoryWeatherTemplate>();
             if (citisname == "")
             {
                 return storyweathers;
@@ -65,7 +54,7 @@ namespace Weather
                     {
                         while (sqliteDataReader.Read())
                         {
-                            Storyweathertemplate story = new Storyweathertemplate();
+                            StoryWeatherTemplate story = new StoryWeatherTemplate();
                             story.id = sqliteDataReader.GetInt32(0);
                             story.name = sqliteDataReader.GetString(3);
                             story.temperature = sqliteDataReader.GetString(2);
@@ -93,7 +82,7 @@ namespace Weather
                 return id2;
             }
         }
-        public static void InsertToDataBase(DateTime Day, Rootobject weathers)
+        public static void InsertToDataBase(DateTime Day, RootObject weathers)
         {          
             string todatabase = $"INSERT INTO weather (time,temperature,city) VALUES ('{Day}','{weathers.main.temp}','{weathers.name}')";
             using (var connection = ConectionToDataBase())

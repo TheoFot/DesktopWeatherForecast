@@ -12,42 +12,29 @@ namespace Weather
 {
     public partial class Weather_Archive : Form
     {
-
        private string _citiesname;
         
-
         public Weather_Archive(string CityName)
         {
-            _citiesname = CityName;
-            
-
+            _citiesname = CityName;        
         }
         public Weather_Archive()
         {
             InitializeComponent();
-        }
-        
-
+        }       
         private void citiesName_TextChanged(object sender, EventArgs e)
         {
             _citiesname = citiesName.Text;
         }
-
         private void Weather_Archive_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        { }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        { }    
         private void search_buttton_Click(object sender, EventArgs e)
         {
             Weather_Archive archive = new Weather_Archive();
             archive._citiesname = citiesName.Text;
-            List<Storyweathertemplate> storyweathers = new List<Storyweathertemplate>();
+            List<StoryWeatherTemplate> storyweathers = new List<StoryWeatherTemplate>();
             storyweathers = DataBaseModel.GetWeatherArchiveFromDB(archive._citiesname);
             if (storyweathers.Count == 0)
             {

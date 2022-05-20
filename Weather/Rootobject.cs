@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Weather
 {
-    public class Rootobject
+    public class RootObject
     {
         public Coord coord { get; set; }
         public Weather[] weather { get; set; }
